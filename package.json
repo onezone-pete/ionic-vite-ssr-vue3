@@ -9,7 +9,7 @@
     "preview": "yarn build && yarn serve",
     "lint": "eslint --fix --ext .js,.vue .",
     "clean": "rm -rf ./node_modules",
-    "build": "npm run build:client && npm run build:server",
+    "build": "rm -rf ./dist && npm run build:client && npm run build:server",
     "build:noExternal": "npm run build:client && npm run build:server:noExternal",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
