@@ -6,14 +6,15 @@
   "scripts": {
     "start": "yarn dev",
     "dev": "node --experimental-json-modules server",
+    "preview": "yarn build && yarn serve",
+    "lint": "eslint --fix --ext .js,.vue .",
+    "clean": "rm -rf ./node_modules",
     "build": "npm run build:client && npm run build:server",
     "build:noExternal": "npm run build:client && npm run build:server:noExternal",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "build:server:noExternal": "vite build --config vite.config.noexternal.js --ssr src/entry-server.js --outDir dist/server",
-    "generate": "vite build --ssrManifest --outDir dist/static && npm run build:server && node prerender",
     "serve": "NODE_ENV=production node --experimental-json-modules server",
-    "debug": "node --experimental-json-modules --inspect-brk server"
+    "generate": "vite build --ssrManifest --outDir dist/static && npm run build:server && node prerender"
   },
   "dependencies": {
     "@capacitor/app": "4.0.1",
@@ -27,7 +28,8 @@
     "express": "^4.18.1",
     "ionicons": "^6.0.3",
     "vue": "^3.2.40",
-    "vue-router": "^4.1.5"
+    "vue-router": "^4.1.5",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@capacitor/cli": "4.3.0",
@@ -47,8 +49,10 @@
     "babel-jest": "^27.3.1",
     "compression": "^1.7.4",
     "cypress": "^8.7.0",
-    "eslint": "^8.4.1",
-    "eslint-plugin-vue": "^8.2.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.6.0",
     "jest": "^27.3.1",
     "vite": "^3.1.4"
   },
