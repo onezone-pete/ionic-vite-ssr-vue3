@@ -9,6 +9,8 @@
     "preview": "yarn build && yarn serve",
     "lint": "eslint --fix --ext .js,.vue .",
     "clean": "rm -rf ./node_modules",
+    "use:ionic": "rm -rf ./src && cp -R ./src_ionic ./src",
+    "use:normal": "rm -rf ./src && cp -R ./src_normal ./src",
     "build": "rm -rf ./dist && npm run build:client && npm run build:server",
     "build:noExternal": "npm run build:client && npm run build:server:noExternal",
     "build:client": "vite build --ssrManifest --outDir dist/client",
